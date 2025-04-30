@@ -21,9 +21,9 @@ jobs:
         run: pytest
   deploy_hekuro:
       runs-on: ubuntu-latest
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v4
-      - name: Hekoru stuff
-        uses:akhileshns/heroku-deploy@v3.12.12
+      steps:
+        - name: checkout code
+          uses: actions/checkout@v4
+        - name: Hekoru stuff
+          uses: akhileshns/heroku-deploy@v3.12.12
     
