@@ -1,0 +1,130 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "ecore_pipeline",
+        "id": "z[Ib{|:nKA_X-((s~Y7y",
+        "x": 75,
+        "y": 24,
+        "fields": {
+          "ATTR_NAME": "tutorial_pipeline",
+          "ATTR_CONCURRENT": false
+        },
+        "inputs": {
+          "CONT_WHEN": {
+            "block": {
+              "type": "ecore_when",
+              "id": "DTaRHa_sIjpJ}I/yuaf3",
+              "fields": {
+                "ATTR_NAME": "on_push",
+                "ATTR_TRIGGER": "workflow_dispatch",
+                "ATTR_TIMER": ""
+              }
+            }
+          },
+          "CONT_JOB": {
+            "block": {
+              "type": "ecore_job",
+              "id": "g9%$Xvx-66h,Oh/PL!Ki",
+              "fields": {
+                "ATTR_NAME": "build_test",
+                "ATTR_ALLOWFAILURE": false,
+                "ATTR_DESCRIPTION": "Build and test the application"
+              },
+              "inputs": {
+                "CONT_TOOL": {
+                  "block": {
+                    "type": "ecore_tool",
+                    "id": "fU!MZF|^*4yx9Zdg+SXA",
+                    "fields": {
+                      "ATTR_NAME": "ubuntu-latest"
+                    }
+                  }
+                },
+                "CONT_COMMAND": {
+                  "block": {
+                    "type": "ecore_command",
+                    "id": "LKxL_VgCQ=%C_-6Q!xQC",
+                    "fields": {
+                      "ATTR_NAME": ""
+                    },
+                    "inputs": {
+                      "CONT_TOOL": {
+                        "block": {
+                          "type": "ecore_tool_value",
+                          "id": "%w-rz6zNZcGD_uJ8(;ig",
+                          "fields": {
+                            "ATTR_NAME": "actions/checkout@v4"
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "ecore_command",
+                        "id": "x~rd@7X]hL(FQntuYO:`",
+                        "fields": {
+                          "ATTR_NAME": "install node"
+                        },
+                        "inputs": {
+                          "CONT_TOOL": {
+                            "block": {
+                              "type": "ecore_tool_value",
+                              "id": "J8k$AGelQ=DC,#G~QVyU",
+                              "fields": {
+                                "ATTR_NAME": "actions/setup-node@v3"
+                              }
+                            }
+                          },
+                          "CONT_PARAMETER": {
+                            "block": {
+                              "type": "ecore_parameter",
+                              "id": "w(*oscU@^g#t^yE5@C5V",
+                              "fields": {
+                                "ATTR_PARAMETER": "version: '20'"
+                              }
+                            }
+                          }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "ecore_command",
+                            "id": "Es`Fu!_.Xr/xA4Ti%`7)",
+                            "fields": {
+                              "ATTR_NAME": "print node version"
+                            },
+                            "inputs": {
+                              "CONT_TOOL": {
+                                "block": {
+                                  "type": "ecore_tool_value",
+                                  "id": "o=A,a~|p@eK4mgIcK]LP",
+                                  "fields": {
+                                    "ATTR_NAME": "npm"
+                                  }
+                                }
+                              },
+                              "CONT_PARAMETER": {
+                                "block": {
+                                  "type": "ecore_parameter",
+                                  "id": "fZ01ANNa/D?i3EG=5`qY",
+                                  "fields": {
+                                    "ATTR_PARAMETER": "--version"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
