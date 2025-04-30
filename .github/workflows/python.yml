@@ -1,7 +1,6 @@
-name: test_2
-
+name: test_pipeline
 on:
-  workflow_dispach:
+  workflow_dispatch:
 
 jobs:
   build_test:
